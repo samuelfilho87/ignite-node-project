@@ -39,6 +39,7 @@ export class CreateUsers1651339978783 implements MigrationInterface {
           {
             name: "created_at",
             type: "timestamp",
+            default: "now()",
           },
         ],
       })
