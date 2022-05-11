@@ -1,8 +1,3 @@
-/*
- * For a detailed explanation regarding each configuration property and type check, visit:
- * https://jestjs.io/docs/configuration
- */
-
 export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -88,7 +83,13 @@ export default {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "@modules/(.*)": "<rootDir>/src/modules/$1",
+    "@config/(.*)": "<rootDir>/src/config/$1",
+    "@shared/(.*)": "<rootDir>/src/shared/$1",
+    "@errors/(.*)": "<rootDir>/src/errors/$1",
+    "@utils/(.*)": "<rootDir>/src/utils/$1",
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
