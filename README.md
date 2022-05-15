@@ -23,7 +23,6 @@ O usuário não precisa estar logado para ver a lista.
 
 **Requisitos Funcionais**
 Deve ser possível cadastrar uma especificação para um carro.
-Deve ser possível listar todas as especificações.
 
 **Regras de Negócio**
 Não deve ser possível cadastrar uma especificação para um carro sem cadastro.
