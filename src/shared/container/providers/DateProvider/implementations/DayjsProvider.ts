@@ -1,11 +1,17 @@
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
+import { injectable } from "tsyringe";
 
 import { IDateProvider } from "../IDateProvider";
 
 dayjs.extend(utc);
 
+@injectable()
 class DayjsProvider implements IDateProvider {
+  addHours(hours: number): Date {
+    return dayjs().add(hours, "hours").toDate();
+  }
+
   addDays(days: number): Date {
     return dayjs().add(days, "days").toDate();
   }
