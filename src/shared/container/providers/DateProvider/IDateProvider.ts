@@ -6,6 +6,8 @@ interface IDateProvider {
   dateNow(): Date;
 
   compareInDays(startDate: Date, endDate: Date): number;
+
+  addDays(days: number): Date;
 }
 
 export { IDateProvider };
