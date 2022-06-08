@@ -8,6 +8,10 @@ dayjs.extend(utc);
 
 @injectable()
 class DayjsProvider implements IDateProvider {
+  compareIfBefore(startDate: Date, endDate: Date): boolean {
+    return dayjs(startDate).isBefore(endDate);
+  }
+
   addHours(hours: number): Date {
     return dayjs().add(hours, "hours").toDate();
   }
