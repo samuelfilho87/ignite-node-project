@@ -11,11 +11,14 @@ import { AppError } from "@shared/errors/AppError";
 import createConnection from "@shared/infra/typeorm";
 
 import swaggerFile from "../../../swagger.json";
+import rateLimiter from "./middlewares/rateLimiter";
 import { router } from "./routes";
 
 createConnection();
 
 const app = express();
+
+app.use(rateLimiter);
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
@@ -29,6 +32,7 @@ app.use(cors());
 app.use(router);
 
 app.use(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (err: Error, request: Request, response: Response, next: NextFunction) => {
     if (err instanceof AppError) {
       return response.status(err.statusCode).json({ message: err.message });
